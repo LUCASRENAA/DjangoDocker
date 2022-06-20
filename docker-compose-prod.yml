@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: .
+    command: bash -c "gunicorn -c config/gunicorn/dev.py"
+    expose:
+      - 8000
+
+  web_server:
+    build: ./nginx
+    ports:
+      - 80:80
